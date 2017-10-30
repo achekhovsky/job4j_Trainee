@@ -5,14 +5,12 @@ package ru.job4j;
  * @version 1.0
  * @author achekhovsky
  */
-public class Calculate 
-{	
+public class Calculate {	
 	/**
  	* The entry point of the interpreter
  	*@param <strong>args</string> - the arguments on the command line
  	*/
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
 		System.out.print("Hello world!");
 	}
 
@@ -21,8 +19,7 @@ public class Calculate
 	* @param name Your name.
 	* @return Echo plus your name.
 	*/
-	public String echo(String name) 
-	{
+	public String echo(String name) {
 	    return "Echo, echo, echo : " + name;
 	}
 }
