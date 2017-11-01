@@ -18,8 +18,12 @@
 *.tar.gz
 *.rar
 
-#Directory for the compiled files Maven
-target 
+# Directory for the compiled files Maven
+target
+
+# IDEA files
+.idea
+*.iml
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
