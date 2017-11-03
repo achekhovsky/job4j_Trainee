@@ -1,7 +1,7 @@
 package ru.job4j.condition;
 
 /**
- * This class describes a point in the coordinate system.
+ * This class describes a point in the 2D coordinate system.
  * @author achekhovsky
  * @version 1.0
  */
@@ -44,6 +44,6 @@ public class Point {
      * @return true if the point belongs to the function and false if not belong
      */
     public boolean is(int a, int b) {
-        return this.getY() == a * this.getX() + b ? true : false;
+        return this.y == a * this.x + b ? true : false;
     }
 }
