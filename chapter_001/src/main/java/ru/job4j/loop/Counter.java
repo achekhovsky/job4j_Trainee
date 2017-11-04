@@ -3,7 +3,7 @@ package ru.job4j.loop;
 import static java.util.stream.IntStream.*;
 
 /**
- * A class with methods for the method for calculating the sum of even numbers.
+ * A class with method for the method for calculating the sum of even numbers.
  * @author achekhovsky
  * @version 1.0
  */

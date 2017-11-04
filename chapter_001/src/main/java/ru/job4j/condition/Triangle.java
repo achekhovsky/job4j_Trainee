@@ -52,12 +52,12 @@ public class Triangle {
      */
     public double area() {
         double rsl = -1;
-        if (this.exist()) {
+
         double ab = this.distance(this.a, this.b);
         double ac = this.distance(this.a, this.c);
         double bc = this.distance(this.b, this.c);
         double p = this.halfPeriod(ab, ac, bc);
-
+        if (this.exist(ab, ac, bc)) {
             rsl = Math.sqrt(p * (p - ab) * (p - ac) * (p - bc));
         }
         return rsl;
@@ -65,11 +65,10 @@ public class Triangle {
 
     /**
      * The method determines the possibility of constructing a triangle.
-     * @return true if three points don't place on the same line, else return false.
+     * @return true if the sum of two sides more than third, else return false.
      */
-    private boolean exist() {
-        return !(this.a.getX() == this.b.getX() && this.a.getX() == this.c.getX())
-                && !(this.a.getY() == this.b.getY() && this.a.getY() == this.c.getY());
+    private boolean exist(double ab, double ac, double bc) {
+        return (ab + ac > bc) && (ab + bc > ac);
     }
 
 }
