@@ -12,13 +12,18 @@ public class BubbleSort {
      * @return sorted array
      */
     public int[] sort(int[] arrayForTurn) {
+        boolean flag = false;
         for (int i = arrayForTurn.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (arrayForTurn[j] > arrayForTurn[j + 1]) {
                     int buf = arrayForTurn[j];
                     arrayForTurn[j] = arrayForTurn[j + 1];
                     arrayForTurn[j + 1] = buf;
+                    flag = true;
                 }
+            }
+            if (!flag) {
+                break;
             }
         }
         return arrayForTurn;
