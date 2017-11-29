@@ -22,10 +22,11 @@ public class StubInputTest {
         Input input = new StubInput(
                 "0",
                 "name1", "desc1",
+                "y",
                 "0",
                 "name2", "desc2",
-                "6");
-        new StartUI(trc, input).init();
+                "exit");
+        new StartUI(input, trc).init();
         assertThat(trc.findAll().length, is(2));
     }
     /**
@@ -40,8 +41,8 @@ public class StubInputTest {
         Input input = new StubInput(
                 "2",
                 "id1", "EditName", "EditDesc",
-                "6");
-        new StartUI(trc, input).init();
+                "exit");
+        new StartUI(input, trc).init();
         assertThat(trc.findById("id1").getName(), is("EditName"));
     }
     /**
@@ -56,8 +57,8 @@ public class StubInputTest {
         Input input = new StubInput(
                 "3",
                 "id1",
-                "6");
-        new StartUI(trc, input).init();
+                "exit");
+        new StartUI(input, trc).init();
         assertThat(trc.findAll().length, is(0));
     }
     /**
@@ -72,8 +73,8 @@ public class StubInputTest {
         Input input = new StubInput(
                 "4",
                 "id1",
-                "6");
-        new StartUI(trc, input).init();
+                "exit");
+        new StartUI(input, trc).init();
         assertThat(trc.findById("id1").getName(), is("Name"));
     }
     /**
@@ -84,13 +85,15 @@ public class StubInputTest {
         Input input = new StubInput(
                 "0",
                 "name1", "desc1",
+                "y",
                 "0",
                 "name2", "desc2",
+                "y",
                 "0",
                 "name1", "desc3",
-                "6");
+                "exit");
         Tracker trc = new Tracker();
-        new StartUI(trc, input).init();
+        new StartUI(input, trc).init();
         assertThat(trc.findByName("name1").length, is(2));
     }
 
