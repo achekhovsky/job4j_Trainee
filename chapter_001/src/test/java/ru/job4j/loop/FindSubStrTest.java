@@ -35,4 +35,13 @@ public class FindSubStrTest {
         FindSubStr find = new FindSubStr();
         assertThat(find.contains("left", "eftl"), is(false));
     }
+
+    /**
+     * Test for FindSubStr.contains method.
+     */
+    @Test
+    public void whenContainSubstringInLeleftThenTrue() {
+        FindSubStr find = new FindSubStr();
+        assertThat(find.contains("leleleft", "left"), is(true));
+    }
 }

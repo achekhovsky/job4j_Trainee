@@ -1,5 +1,6 @@
 package ru.job4j.loop;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -15,14 +16,19 @@ public class FindSubStr {
      * @return
      */
     public boolean contains(String origin, String sub) {
-        if ((origin.length() > 0 && sub.length() > 0)) {
-            for (char baseSymbol : origin.toCharArray()) {
-                if (sub.charAt(0) == baseSymbol && origin.length() >= sub.length()) {
-                    return Objects.equals(sub, origin.substring(0, sub.length()));
+        char[] originChars = origin.toCharArray();
+        char[] subChars = sub.toCharArray();
+        int count = 0;
+        if ((originChars.length > 0 && subChars.length > 0)) {
+            for (int i = 0; (i < originChars.length && count != subChars.length); i++) {
+                if (subChars[count] == originChars[i]) {
+                    count++;
+                } else {
+                    count = 0;
                 }
-                origin = origin.substring(1);
+
             }
         }
-        return Objects.equals(sub, origin);
+        return count == subChars.length;
     }
 }
