@@ -19,7 +19,7 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 
     /**
@@ -29,7 +29,11 @@ public class StartUI {
         this.menu = new MenuTracker(this.input, this.tracker);
         do {
             this.menu.showMenu();
-            this.menu.select(Integer.parseInt(this.input.ask("Select: ")));
+            try {
+                this.menu.select(Integer.parseInt(this.input.ask("Select: ", new int[] {0, 1, 2, 3, 4, 5})));
+            } catch (MenuOutException moe) {
+                System.out.println(moe);
+            }
         } while (!"exit".equals(input.ask("Enter 'exit' for exit or any key to continue...")));
     }
 
