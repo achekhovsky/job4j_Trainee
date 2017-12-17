@@ -47,4 +47,22 @@ public class ConvertListTest {
 		assertArrayEquals(expected, cl.toArray(lst, 3));
 	}
 
+	/**
+	 * Test for ConverList.convert method
+	 */
+	@Test
+	public void ifListWithArraysThenListWithAllTheElementsOfTheArrays() {
+		ConvertList cl = new ConvertList();
+		List<int[]> lst = new ArrayList<int[]>();
+		lst.add(new int[] {1, 2, 3});
+		lst.add(new int[] {4, 5});
+		List<Integer> expected = new ArrayList<Integer>();
+		expected.add(1);
+		expected.add(2);
+		expected.add(3);
+		expected.add(4);
+		expected.add(5);
+		assertEquals(expected, cl.convert(lst));
+	}
+
 }
