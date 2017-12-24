@@ -34,4 +34,46 @@ public class SortUserTest {
         assertThat(expected.toString(), is(su.sort(unsortedLst).toString()));
     }
 
+    /**
+     *  Test for SortUser.sortNameLength method
+     */
+    @Test
+    public void whenLengthComparatorThenUsersSortedByNameLength() {
+        SortUser su = new SortUser();
+        ArrayList<User> unsortedLst = new ArrayList<User>();
+        unsortedLst.add(new User("n", 1));
+        unsortedLst.add(new User("name", 1));
+        unsortedLst.add(new User("na", 1));
+        unsortedLst.add(new User("nam", 1));
+
+        StringBuffer expected = new StringBuffer();
+        expected.append("[n - 1, ");
+        expected.append("na - 1, ");
+        expected.append("nam - 1, ");
+        expected.append("name - 1]");
+
+        assertThat(expected.toString(), is(su.sortNameLength(unsortedLst).toString()));
+    }
+
+    /**
+     *  Test for SortUser.sortNameLength method
+     */
+    @Test
+    public void whenAllFieldsThenUsersSortedByAllFields() {
+        SortUser su = new SortUser();
+        ArrayList<User> unsortedLst = new ArrayList<User>();
+        unsortedLst.add(new User("A", 2));
+        unsortedLst.add(new User("B", 4));
+        unsortedLst.add(new User("A", 1));
+        unsortedLst.add(new User("B", 3));
+
+        StringBuffer expected = new StringBuffer();
+        expected.append("[A - 1, ");
+        expected.append("A - 2, ");
+        expected.append("B - 3, ");
+        expected.append("B - 4]");
+
+        assertThat(expected.toString(), is(su.sortByAllFields(unsortedLst).toString()));
+    }
+
 }
